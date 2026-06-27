@@ -357,6 +357,7 @@ font-size:18px;
 .quote{
 
 font-size:22px;
+   
 
 }
 
@@ -367,3 +368,300 @@ font-size:34px;
 }
 
        }
+/* ==========================================
+   PART 2B
+   Animations, Particles, Dark Mode & Effects
+========================================== */
+
+/* Floating Background */
+
+.particles{
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+top:0;
+
+left:0;
+
+overflow:hidden;
+
+pointer-events:none;
+
+}
+
+.particles span{
+
+position:absolute;
+
+color:rgba(255,255,255,.12);
+
+font-size:28px;
+
+font-weight:bold;
+
+animation:float 15s linear infinite;
+
+user-select:none;
+
+}
+
+.particles span:nth-child(1){
+
+left:8%;
+top:15%;
+
+}
+
+.particles span:nth-child(2){
+
+left:80%;
+top:10%;
+
+animation-duration:18s;
+
+}
+
+.particles span:nth-child(3){
+
+left:22%;
+top:70%;
+
+animation-duration:20s;
+
+}
+
+.particles span:nth-child(4){
+
+left:60%;
+top:35%;
+
+animation-duration:14s;
+
+}
+
+.particles span:nth-child(5){
+
+left:85%;
+top:75%;
+
+animation-duration:22s;
+
+}
+
+.particles span:nth-child(6){
+
+left:45%;
+top:82%;
+
+animation-duration:17s;
+
+}
+
+.particles span:nth-child(7){
+
+left:70%;
+top:55%;
+
+animation-duration:13s;
+
+}
+
+.particles span:nth-child(8){
+
+left:12%;
+top:50%;
+
+animation-duration:19s;
+
+}
+
+@keyframes float{
+
+0%{
+
+transform:translateY(0px) rotate(0deg);
+
+}
+
+50%{
+
+transform:translateY(-35px) rotate(8deg);
+
+}
+
+100%{
+
+transform:translateY(0px) rotate(0deg);
+
+}
+
+}
+
+/* Story Animation */
+
+.story{
+
+opacity:0;
+
+transform:translateY(70px);
+
+transition:1s ease;
+
+}
+
+.story.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Card Animation */
+
+.card{
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:.8s;
+
+}
+
+.card.show{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+/* Code Box Glow */
+
+.code-box{
+
+box-shadow:
+
+0 0 20px rgba(34,197,94,.25),
+
+0 0 45px rgba(34,197,94,.12);
+
+}
+
+/* Quote */
+
+.quote{
+
+font-style:italic;
+
+line-height:1.5;
+
+}
+
+/* Hero Overlay */
+
+.hero::before{
+
+content:"";
+
+position:absolute;
+
+width:100%;
+
+height:100%;
+
+background:radial-gradient(circle at center,
+rgba(255,255,255,.08),
+transparent 70%);
+
+}
+
+/* Light Mode */
+
+.light-mode{
+
+background:#ffffff;
+
+color:#222;
+
+}
+
+.light-mode .hero{
+
+background:linear-gradient(
+135deg,
+#dbeafe,
+#93c5fd,
+#60a5fa
+);
+
+}
+
+.light-mode .story{
+
+background:#ffffff;
+
+color:#111;
+
+}
+
+.light-mode .vision{
+
+background:#eef4ff;
+
+}
+
+.light-mode .card{
+
+background:#ffffff;
+
+}
+
+.light-mode .footer{
+
+background:#dbeafe;
+
+color:#111;
+
+}
+
+.light-mode #theme-toggle{
+
+background:#111827;
+
+color:white;
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+background:#081229;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#2563eb;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#38bdf8;
+
+}
