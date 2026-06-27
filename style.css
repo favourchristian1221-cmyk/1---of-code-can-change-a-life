@@ -1,0 +1,90 @@
+/* style.css
+   Base styles for "One Line Can Change a Life"
+   Includes responsive layout and light/dark theme variables.
+*/
+:root{
+  --bg: #ffffff;
+  --text: #111827;
+  --muted: #6b7280;
+  --accent: #06b6d4; /* teal-400 */
+  --card: #f8fafc;
+  --glass: rgba(255,255,255,0.6);
+}
+
+/* Dark theme variables (use either body.dark or [data-theme="dark"]) */
+[data-theme="dark"], body.dark{
+  --bg: #0b1220;
+  --text: #e6eef8;
+  --muted: #9aa6b2;
+  --accent: #60f3ff;
+  --card: #071326;
+  --glass: rgba(10,14,20,0.5);
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background:linear-gradient(180deg,var(--bg),color-mix(in srgb, var(--bg) 80%, #f1f5f9));
+  color:var(--text);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  line-height:1.45;
+  padding:0 20px;
+}
+
+header{
+  display:flex;
+  justify-content:flex-end;
+  padding:18px 0;
+}
+
+#theme-toggle{
+  background:transparent;
+  border:1px solid color-mix(in srgb, var(--text) 20%, transparent);
+  color:var(--text);
+  padding:8px 12px;
+  border-radius:8px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+main{max-width:1100px;margin:0 auto;padding:20px 0}
+.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
+
+.particles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
+.particles span{
+  display:inline-block;
+  background:var(--card);
+  padding:6px 10px;border-radius:8px;font-weight:600;color:var(--accent);
+  box-shadow:0 2px 6px rgba(2,6,23,0.08);
+}
+
+.code-box{
+  background:var(--card);
+  border-radius:12px;
+  padding:18px;
+  box-shadow:0 8px 30px rgba(2,6,23,0.08);
+  min-height:160px;overflow:auto;
+}
+.code-box code{white-space:pre-wrap; display:block; color:var(--text);}
+
+.content h1{font-size:2.2rem;margin:0 0 12px}
+.content .intro{color:var(--muted);margin:0 0 18px}
+#discover-btn{background:var(--accent);border:none;color:#012; padding:12px 18px;border-radius:10px;cursor:pointer;font-weight:700}
+
+.story{margin-top:40px;background:var(--glass);padding:18px;border-radius:12px}
+.story h2{margin-top:0}
+blockquote{margin:12px 0;padding-left:14px;border-left:3px solid var(--accent);color:var(--muted)}
+
+footer{max-width:1100px;margin:34px auto 60px;padding:0 0 18px;color:var(--muted);text-align:center}
+
+/* Responsive */
+@media (max-width:880px){
+  .hero{grid-template-columns:1fr;}
+  .code-box{order:2}
+}
+
+/* Small helper for accessibility focus */
+:focus{outline:3px solid color-mix(in srgb, var(--accent) 20%, transparent);outline-offset:3px}
