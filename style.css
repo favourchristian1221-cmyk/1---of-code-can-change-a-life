@@ -1,90 +1,369 @@
-/* style.css
-   Base styles for "One Line Can Change a Life"
-   Includes responsive layout and light/dark theme variables.
-*/
-:root{
-  --bg: #ffffff;
-  --text: #111827;
-  --muted: #6b7280;
-  --accent: #06b6d4; /* teal-400 */
-  --card: #f8fafc;
-  --glass: rgba(255,255,255,0.6);
+/* ==========================
+   RESET
+========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* Dark theme variables (use either body.dark or [data-theme="dark"]) */
-[data-theme="dark"], body.dark{
-  --bg: #0b1220;
-  --text: #e6eef8;
-  --muted: #9aa6b2;
-  --accent: #60f3ff;
-  --card: #071326;
-  --glass: rgba(10,14,20,0.5);
+html{
+    scroll-behavior:smooth;
 }
 
-*{box-sizing:border-box}
-html,body{height:100%}
 body{
-  margin:0;
-  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-  background:linear-gradient(180deg,var(--bg),color-mix(in srgb, var(--bg) 80%, #f1f5f9));
-  color:var(--text);
-  -webkit-font-smoothing:antialiased;
-  -moz-osx-font-smoothing:grayscale;
-  line-height:1.45;
-  padding:0 20px;
+    font-family:'Poppins',sans-serif;
+    background:#081229;
+    color:white;
+    overflow-x:hidden;
+    line-height:1.7;
 }
 
-header{
-  display:flex;
-  justify-content:flex-end;
-  padding:18px 0;
-}
+/* ==========================
+   THEME BUTTON
+========================== */
 
 #theme-toggle{
-  background:transparent;
-  border:1px solid color-mix(in srgb, var(--text) 20%, transparent);
-  color:var(--text);
-  padding:8px 12px;
-  border-radius:8px;
-  cursor:pointer;
-  font-weight:600;
+    position:fixed;
+    top:20px;
+    right:20px;
+
+    width:55px;
+    height:55px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#2563eb;
+
+    color:white;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
+
+    transition:.4s;
+
+    z-index:1000;
 }
 
-main{max-width:1100px;margin:0 auto;padding:20px 0}
-.hero{display:grid;grid-template-columns:1fr 420px;gap:28px;align-items:center}
-
-.particles{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:10px}
-.particles span{
-  display:inline-block;
-  background:var(--card);
-  padding:6px 10px;border-radius:8px;font-weight:600;color:var(--accent);
-  box-shadow:0 2px 6px rgba(2,6,23,0.08);
+#theme-toggle:hover{
+    transform:scale(1.1);
 }
+
+/* ==========================
+   HERO SECTION
+========================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:60px 20px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    background:
+    linear-gradient(
+    135deg,
+    #081229,
+    #0f3d91,
+    #2563eb
+    );
+
+}
+
+.content{
+
+    max-width:900px;
+
+    position:relative;
+
+    z-index:5;
+
+}
+
+#title{
+
+    font-size:68px;
+
+    font-weight:800;
+
+    margin-bottom:25px;
+
+    line-height:1.2;
+
+}
+
+.intro{
+
+    font-size:23px;
+
+    opacity:.9;
+
+    margin-bottom:45px;
+
+}
+
+/* ==========================
+   BUTTON
+========================== */
+
+.main-btn{
+
+    padding:18px 45px;
+
+    border:none;
+
+    border-radius:50px;
+
+    background:#38bdf8;
+
+    color:white;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    transition:.4s;
+
+}
+
+.main-btn:hover{
+
+    transform:translateY(-6px);
+
+    box-shadow:0 20px 40px rgba(56,189,248,.4);
+
+}
+
+/* ==========================
+   CODE BOX
+========================== */
 
 .code-box{
-  background:var(--card);
-  border-radius:12px;
-  padding:18px;
-  box-shadow:0 8px 30px rgba(2,6,23,0.08);
-  min-height:160px;overflow:auto;
-}
-.code-box code{white-space:pre-wrap; display:block; color:var(--text);}
 
-.content h1{font-size:2.2rem;margin:0 0 12px}
-.content .intro{color:var(--muted);margin:0 0 18px}
-#discover-btn{background:var(--accent);border:none;color:#012; padding:12px 18px;border-radius:10px;cursor:pointer;font-weight:700}
+    margin-top:45px;
 
-.story{margin-top:40px;background:var(--glass);padding:18px;border-radius:12px}
-.story h2{margin-top:0}
-blockquote{margin:12px 0;padding-left:14px;border-left:3px solid var(--accent);color:var(--muted)}
+    display:inline-block;
 
-footer{max-width:1100px;margin:34px auto 60px;padding:0 0 18px;color:var(--muted);text-align:center}
+    background:#111827;
 
-/* Responsive */
-@media (max-width:880px){
-  .hero{grid-template-columns:1fr;}
-  .code-box{order:2}
+    padding:22px 30px;
+
+    border-radius:15px;
+
+    border:1px solid rgba(255,255,255,.1);
+
+    font-size:22px;
+
+    color:#22c55e;
+
+    font-family:monospace;
+
 }
 
-/* Small helper for accessibility focus */
-:focus{outline:3px solid color-mix(in srgb, var(--accent) 20%, transparent);outline-offset:3px}
+/* ==========================
+   STORY
+========================== */
+
+.story{
+
+    padding:100px 12%;
+
+    background:white;
+
+    color:#222;
+
+}
+
+.story h2{
+
+    text-align:center;
+
+    font-size:48px;
+
+    margin-bottom:40px;
+
+}
+
+.story p{
+
+    max-width:900px;
+
+    margin:auto;
+
+    text-align:center;
+
+    font-size:21px;
+
+}
+
+.quote{
+
+    margin-top:60px;
+
+    text-align:center;
+
+    font-size:30px;
+
+    color:#2563eb;
+
+    font-weight:700;
+
+}
+
+/* ==========================
+   VISION
+========================== */
+
+.vision{
+
+    padding:100px 10%;
+
+    background:#f7f9fc;
+
+}
+
+.vision h2{
+
+    text-align:center;
+
+    color:#111827;
+
+    font-size:46px;
+
+    margin-bottom:60px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+}
+
+.card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.08);
+
+    transition:.4s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-12px);
+
+}
+
+.card h3{
+
+    color:#2563eb;
+
+    margin-bottom:20px;
+
+}
+
+.card p{
+
+    color:#555;
+
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
+.footer{
+
+    background:#081229;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.footer h2{
+
+    margin-bottom:25px;
+
+}
+
+.footer p{
+
+    opacity:.8;
+
+    margin-top:15px;
+
+}
+
+/* ==========================
+   MOBILE
+========================== */
+
+@media(max-width:768px){
+
+#title{
+
+font-size:42px;
+
+}
+
+.intro{
+
+font-size:18px;
+
+}
+
+.story h2{
+
+font-size:36px;
+
+}
+
+.story p{
+
+font-size:18px;
+
+}
+
+.quote{
+
+font-size:22px;
+
+}
+
+.vision h2{
+
+font-size:34px;
+
+}
+
+       }
